@@ -1,8 +1,8 @@
 id: net.xmind.ZEN
-base: io.atom.electron.BaseApp
-base-version: '18.08'
+base: org.electronjs.Electron2.BaseApp
+base-version: '19.08'
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 tags:
   - proprietary
@@ -50,7 +50,7 @@ modules:
           - rmdir opt
           - mv usr export
           - rm -fr export/share/doc
-          - desktop-file-edit --set-key="Exec" --set-value="XMind %U" export/share/applications/XMind.desktop
+          - desktop-file-edit --set-key="Exec" --set-value="XMind --no-sandbox %U" export/share/applications/XMind.desktop
           - desktop-file-edit --set-key="Icon" --set-value="net.xmind.ZEN" export/share/applications/XMind.desktop
           - desktop-file-edit --set-key="X-Flatpak-RenamedFrom" --set-value="XMind.desktop;" export/share/applications/XMind.desktop
           - rename "XMind." "net.xmind.ZEN." export/share/{icons/hicolor/*/*,applications}/XMind.*
@@ -60,6 +60,6 @@ modules:
 
       - type: extra-data
         filename: xmind.deb
-        url: http://dl2.xmind.net/xmind-downloads/XMind-ZEN-for-Linux-64bit.deb
-        sha256: abfc352bab17859c7b4d061f233db2a2b252d062cc24c6332eb1d86a5bf56069
-        size: 59754534
+        url: https://www.xmind.net/xmind/downloads/XMind-ZEN-for-Linux-amd-64bit-10.0.0-201911260056.deb
+        sha256: 6c8283e23d9d57d3eb3b8f3bddf8208d99e6c6ecffe537e69293027bd0c56ed0
+        size: 60819842

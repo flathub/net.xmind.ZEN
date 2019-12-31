@@ -22,6 +22,8 @@
     <category>Office</category>
   </categories>
   <releases>
+    <release version="10.0.0" date="2019-11-26">
+    </release>
     <release version="9.0.6" date="2018-07-17">
     </release>
   </releases>
