@@ -22,6 +22,7 @@ finish-args:
   - --filesystem=xdg-videos
   - --filesystem=/run/media
   - --filesystem=/media
+  - --filesystem=home
   - --env=GTK_IM_MODULE=xim
 cleanup:
   - "*.a"
