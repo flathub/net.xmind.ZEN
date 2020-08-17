@@ -6,7 +6,7 @@ runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 tags:
   - proprietary
-command: XMind
+command: xmind
 separate-locales: false
 build-options:
   no-debuginfo: true
@@ -38,7 +38,7 @@ modules:
       - install -Dm755 /usr/bin/desktop-file-edit -t /app/bin/
       - install -Dm755 /usr/bin/ar -t /app/bin/
       - cp -a /usr/lib/x86_64-linux-gnu/libbfd* /app/lib
-      - ln -s ../extra/XMind\ ZEN/XMind /app/bin/XMind
+      - ln -s ../extra/XMind/xmind /app/bin/xmind
     sources:
       - type: script
         dest-filename: apply_extra.sh
@@ -50,10 +50,10 @@ modules:
           - rmdir opt
           - mv usr export
           - rm -fr export/share/doc
-          - desktop-file-edit --set-key="Exec" --set-value="XMind --no-sandbox %U" export/share/applications/XMind.desktop
-          - desktop-file-edit --set-key="Icon" --set-value="net.xmind.ZEN" export/share/applications/XMind.desktop
-          - desktop-file-edit --set-key="X-Flatpak-RenamedFrom" --set-value="XMind.desktop;" export/share/applications/XMind.desktop
-          - rename "XMind." "net.xmind.ZEN." export/share/{icons/hicolor/*/*,applications}/XMind.*
+          - desktop-file-edit --set-key="Exec" --set-value="xmind --no-sandbox %U" export/share/applications/xmind.desktop
+          - desktop-file-edit --set-key="Icon" --set-value="net.xmind.ZEN" export/share/applications/xmind.desktop
+          - desktop-file-edit --set-key="X-Flatpak-RenamedFrom" --set-value="xmind.desktop;" export/share/applications/xmind.desktop
+          - rename "xmind." "net.xmind.ZEN." export/share/{icons/hicolor/*/*,applications}/xmind.*
 
       - type: file
         path: net.xmind.ZEN.appdata.xml
