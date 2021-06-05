@@ -22,12 +22,10 @@
     <category>Office</category>
   </categories>
   <releases>
-      <release version="10.2.1" date="2020-07-21">
-    </release>
-    <release version="10.0.0" date="2019-11-26">
-    </release>
-    <release version="9.0.6" date="2018-07-17">
-    </release>
+    <release version="10.3.1" date="2021-01-13"/>
+    <release version="10.2.1" date="2020-07-21"/>
+    <release version="10.0.0" date="2019-11-26"/>
+    <release version="9.0.6" date="2018-07-17"/>
   </releases>
   <screenshots>
     <screenshot type="default">
