@@ -1,8 +1,8 @@
 id: net.xmind.ZEN
 base: org.electronjs.Electron2.BaseApp
-base-version: '19.08'
+base-version: '20.08'
 runtime: org.freedesktop.Platform
-runtime-version: '19.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 tags:
   - proprietary
@@ -34,12 +34,16 @@ modules:
   - name: xmind
     buildsystem: simple
     build-commands:
+      - install -Dm755 xmind.sh /app/bin/xmind
       - install -Dm755 apply_extra.sh /app/bin/apply_extra
       - install -Dm644 ${FLATPAK_ID}.appdata.xml -t /app/share/appdata/
       - install -Dm755 /usr/bin/desktop-file-edit -t /app/bin/
       - install -Dm755 /usr/bin/ar -t /app/bin/
       - cp -a /usr/lib/x86_64-linux-gnu/libbfd* /app/lib
-      - ln -s ../extra/XMind/xmind /app/bin/xmind
+      - mkdir /app/share/icons/
+      - mkdir /app/share/applications/
+      - ln -s ../extra/export/share/icons /app/share/icons/
+      - ln -s ../extra/export/share/applications /app/share/applications/
     sources:
       - type: script
         dest-filename: apply_extra.sh
@@ -51,7 +55,6 @@ modules:
           - rmdir opt
           - mv usr export
           - rm -fr export/share/doc
-          - desktop-file-edit --set-key="Exec" --set-value="xmind --no-sandbox %U" export/share/applications/xmind.desktop
           - desktop-file-edit --set-key="Icon" --set-value="net.xmind.ZEN" export/share/applications/xmind.desktop
           - desktop-file-edit --set-key="X-Flatpak-RenamedFrom" --set-value="xmind.desktop;" export/share/applications/xmind.desktop
           - rename "xmind." "net.xmind.ZEN." export/share/{icons/hicolor/*/*,applications}/xmind.*
@@ -61,6 +64,9 @@ modules:
 
       - type: extra-data
         filename: xmind.deb
-        url: https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
-        sha256: 3d68dc776aff7d1fa56c8f1b1cf4400ac85d17858dc3764243ff99bfeb7787d5
-        size: 63442020 
+        url: https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.3.1-202101132117.deb
+        sha256: f3fe171ccbe26b1adb80110775d6fc68dc0fa29ee8ad2d2b763b59202403cf59
+        size: 66292682
+
+      - type: file
+        path: xmind.sh
